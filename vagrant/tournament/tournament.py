@@ -5,7 +5,6 @@
 
 import psycopg2
 
-#connects to DB
 def connect():
     """Connect to the PostgreSQL database.  Returns a database connection."""
     db = psycopg2.connect("dbname=tournament")
@@ -13,7 +12,7 @@ def connect():
     return psycopg2.connect("dbname=tournament")
     db.close()
 
-#Clears out the matches table
+
 def deleteMatches():
     """Remove all the match records from the database."""
     db = psycopg2.connect("dbname=tournament")
@@ -24,7 +23,7 @@ def deleteMatches():
     db.commit()
     db.close()
 
-#clears out the players table
+
 
 def deletePlayers():
     """Remove all the player records from the database."""
@@ -35,7 +34,7 @@ def deletePlayers():
     db.commit()
     db.close()
 
-#adds up players
+
 
 def countPlayers():
     """Returns the number of players currently registered."""
@@ -48,7 +47,6 @@ def countPlayers():
     db.close()
 
 
-#Inputs players
 
 def registerPlayer(name):
     """Adds a player to the tournament database.
@@ -67,7 +65,7 @@ def registerPlayer(name):
     db.close()
 
 
-#returns how many wins and matches players have played.
+#This table is created every time since it will be used only for current status. 
 
 
 def playerStandings():
@@ -91,9 +89,10 @@ def playerStandings():
     print 
     return results
     db.close()
-
-#let's the user input the winner and loser of each match
-
+'''
+The table for matches just logs winners and losers to make everything simple.
+This requires less input from the user and enables faster processing of the information.
+'''
 
 def reportMatch(winner, loser):
     """Records the outcome of a single match between two players.
@@ -108,8 +107,11 @@ def reportMatch(winner, loser):
     c.execute("INSERT INTO matches (loser) VALUES (%s)", (loser,))
     db.commit()
     db.close()
-
- #Will return the next set of matches
+'''
+This can be used for any even number of players. 
+By doing the python loop this way it makes sense for 6 or 10 players.
+A self join would have worked but it made it diffult unless there was groups of 4 players.
+'''
  
 def swissPairings():
     """Returns a list of pairs of players for the next round of a match.
