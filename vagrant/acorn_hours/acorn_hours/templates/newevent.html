@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	</head>
+	<body>
+
+	<h1>New Event for {{type.name}}</h1>
+	
+	<form action="{{url_for('newEvent', servicetype_id=type.id) }}" method = 'POST'>
+
+	<p>Name:</p>
+
+	<input type='text' size='30' name='name'>
+	<p>Description:</p>
+	<input type='text' size='30' name='description'>
+	<p>Date:</p>
+	<input type="date"  name="edate" >
+	<p>Time:</p>
+	<input type="time"  name="etime" >
+	<p>Address:</p>
+	<input type='text' size='100' name='address'>
+</br>
+
+
+
+
+
+
+	<input type='submit' value='Create'>
+
+	</form>
+		
+
+
+	</body>
+</html>

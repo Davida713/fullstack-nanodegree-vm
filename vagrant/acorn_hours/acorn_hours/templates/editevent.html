@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	</head>
+	<body>
+
+	<h1>Edit {{eevent.name}}:</h1>
+	
+	<form action="{{url_for('editEvent', servicetype_id=etype.id, event_id=eevent.id)}}" method = 'POST'>
+
+	<p>Name:</p>
+
+	<input type='text' size='30' name='name' placeholder='{{eevent.name}}'>
+	<p>Description:</p>
+	<input type='text' size='30' name='description' placeholder='{{eevent.description}}'>
+	<p>Date:</p>
+	<input type="date"  name="edate" placeholder='{{eevent.date}}'>
+	<p>Time:</p>
+	<input type="time"  name="etime" placeholder='{{eevent.time}}'>
+	<p>Address:</p>
+	<input type='text' size='100' name='address' placeholder='{{eevent.address}}'>
+
+	<input type='submit' value='Edit'>
+
+	</form>
+
+</br>
+</br>
+<a href="{{url_for('showEvents', servicetype_id=etype.id)}}">go back</a>
+
+		
+
+
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	</head>
+	<body>
+
+		<div class='name'>
+			<h1>Are you sure you want to delete{{devent.name}}?</h1>
+		</br>
+		<form action="{{url_for('deleteEvent', servicetype_id=dtype.id, event_id=devent.id)}}" method = 'post'>
+		<button  type="submit">Yes</button>
+
+		</form>
+	</br>
+	<a href="{{url_for('showEvents', servicetype_id=dtype.id)}}">go back</a>
+
+
+		
+
+
+	</body>
+</html>

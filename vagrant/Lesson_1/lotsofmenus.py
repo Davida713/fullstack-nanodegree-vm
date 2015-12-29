@@ -18,6 +18,9 @@ DBSession = sessionmaker(bind=engine)
 # session.rollback()
 session = DBSession()
 
+session.query(Restaurant).delete(synchronize_session=False)
+session.commit()
+
 
 # Menu for UrbanBurger
 restaurant1 = Restaurant(name="Urban Burger")

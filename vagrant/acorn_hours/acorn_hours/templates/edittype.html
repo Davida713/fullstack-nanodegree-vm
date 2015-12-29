@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	</head>
+	<body>
+
+	<h1>Edit {{etype.name}}:</h1>
+	
+	<form action="{{url_for('editType', servicetype_id=etype.id)}}" method = 'POST'>
+
+	<p>Name:</p>
+
+	<input type='text' size='30' name='name' placeholder='{{etype.name}}'>
+	<p>Description:</p>
+	<input type='text' size='30' name='description' placeholder='{{etype.description}}'>
+
+	<input type='submit' value='Edit'>
+
+	</form>
+
+</br>
+</br>
+<a href="{{url_for('showTypes')}}">go back</a>
+
+		
+
+
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+	<body>
+
+	<div class = 'pane'>
+		<div class = 'header'>
+		<h1>Restaurants List:</h1>
+	</div>
+</br>
+</br>
+	<a href='{{url_for('newRestaurant') }}'> Add New Restaurant</a>
+
+	{% for rest in restaurants %}
+
+	<div class = 'RestName'>
+		<span class = 'name'>
+			<h2>{{rest.name}}</h2></br>
+			<a href='{{url_for('showMenu', restaurant_id= rest.id)}}'>Menu</a></br>
+			</br>
+		</span>
+	</div>
+<div class = "editdeletepane">
+
+	<a href='{{url_for('editRestaurant', restaurant_id=rest.id) }}'>Edit</a>
+	</br>
+	<a href='{{url_for('deleteRestaurant', restaurant_id=rest.id) }}'>Delete</a>
+</div>
+
+
+
+
+	{% endfor %}
+
+</body>
+
+</html>
+
