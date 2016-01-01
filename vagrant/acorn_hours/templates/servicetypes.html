@@ -1,0 +1,49 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class = 'flash'>
+      {% with messages = get_flashed_messages() %}
+			{% if messages %}
+  
+			 <ol>
+			  {% for message in messages %}
+   			 <li> <strong> {{ message }} </strong> </li>
+			{% endfor %}
+			 </ol>
+			 {% endif %}
+			 {% endwith %}
+	<div class='row'>
+		<div class="col-md-9">
+			<h1>Service Types</h1>
+		</div>
+		{%if 'username' in session %}
+		<div class="col-md-3">
+			<form action="{{url_for('newType')}}">
+				<input type="submit" value="Add a Category" class='fsSubmitButton'>
+			</form>
+		</div>	
+		{% endif %}
+	</div>
+	</br>
+	</br>
+	<div class='row'>
+		{% for i in types %}
+		<div class="col-md-5" id="type">
+			<span class = 'name'>
+			<a href ="{{url_for('showEvents', servicetype_id= i.id)}}">{{i.name}}</a>
+			<span class = 'description'>
+				<p>{{i.description}} </p>
+				{% if i.owner== user_id %}
+				<a class="btn btn-default" href ="{{url_for('deleteType', servicetype_id= i.id)}}">Delete</a>
+				<a class="btn btn-default" href ="{{url_for('editType', servicetype_id= i.id)}}">Edit</a>
+				{% endif %}
+			</span>
+		</div>
+
+
+		{% endfor %}
+	</div>
+	
+	
+{% endblock %}
+

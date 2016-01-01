@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-	<head>
-	</head>
-	<body>
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
 
 	<h1>New Event for {{type.name}}</h1>
 	
@@ -32,6 +29,4 @@
 	</form>
 		
 
-
-	</body>
-</html>
+{% endblock %}

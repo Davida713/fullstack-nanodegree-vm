@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-	</head>
-	<body>
-
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
 	<h1>Edit {{eevent.name}}:</h1>
 	
 	<form action="{{url_for('editEvent', servicetype_id=etype.id, event_id=eevent.id)}}" method = 'POST'>
@@ -29,7 +26,4 @@
 <a href="{{url_for('showEvents', servicetype_id=etype.id)}}">go back</a>
 
 		
-
-
-	</body>
-</html>
+{% endblock %}

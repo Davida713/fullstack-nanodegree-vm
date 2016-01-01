@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-	</head>
-	<body>
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
 
 	<h1>Edit {{etype.name}}:</h1>
 	
@@ -23,7 +21,4 @@
 <a href="{{url_for('showTypes')}}">go back</a>
 
 		
-
-
-	</body>
-</html>
+{% endblock %}

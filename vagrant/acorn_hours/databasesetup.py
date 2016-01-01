@@ -17,8 +17,7 @@ class User(Base):
 	name =Column(String(80), nullable = False)
 	id = Column(Integer, primary_key = True) 
 	email =Column(String(80), nullable = False)
-	grade=Column(Integer(2))
-	teacher=Column(String(80))
+
 
 
 class ServiceType(Base):
@@ -27,6 +26,16 @@ class ServiceType(Base):
 	name =Column(String(80), nullable = False)
 	id =Column(Integer, primary_key = True) 
 	description =Column(String, nullable = False)
+	owner= Column(Integer, ForeignKey('user.id'))
+	user= relationship(User)
+
+	@property
+	def serialize(self):
+		return {
+		   'name'         : self.name,
+		   'description'  : self.description,
+		   'id'           : self.id,
+	   }
 
 class Event(Base):
 	__tablename__ = 'event'
@@ -39,6 +48,20 @@ class Event(Base):
 	description =Column(String)
 	type_id = Column(Integer, ForeignKey('type.id'))
 	type = relationship(ServiceType)
+	owner= Column(Integer, ForeignKey('user.id'))
+	user= relationship(User)
+
+	@property
+	def serialize(self):
+		return {
+		   'name'         : self.name,
+		   'description'  : self.description,
+		   'id'           : self.id,
+		   'date'         : str(self.date),
+		   'time'         : str(self.time),
+		   'type_id'      : self.type_id,
+
+	   }
 
 
 

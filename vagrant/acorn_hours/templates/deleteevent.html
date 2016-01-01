@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+		
+		<div class='confirm'>
+			<h2>Are you sure you want to delete {{devent.name}}?</h2>
+		</div>
+
+
+
+<div class="row">
+	<div class="col-md-3 col-md-offset-3">
+		<form action="{{url_for('deleteEvent', servicetype_id=dtype.id, event_id=devent.id)}}" method = 'post'>
+				<input type="submit" value="Yes" class='fsSubmitButton'>
+		</form>	
+	</div>
+
+
+	
+	<div class="col-md-3">
+		<form action="{{url_for('showEvents', servicetype_id= devent.type_id)}}">
+				<input type="submit" value="Go Back" class='fsSubmitButton'>
+		</form>
+	</div>
+</div>
+
+
+		
+
+
+{% endblock %}

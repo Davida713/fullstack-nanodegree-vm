@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<h1>{{event.name}}</h1>
+<div class="row">
+	<div class="col-md-5" id="type">
+			<p>What you will be doing:</p>	
+			<p>{{event.description}}</p>
+			<ul>
+
+				<li>Date: {{event.date}}</li>
+				<li>Time: {{event.time}}</li>
+			</ul>
+
+			<a class="btn btn-default" href ="{{url_for('deleteEvent', servicetype_id= event.type_id, event_id=event.id)}}">Delete</a>
+			<a class="btn btn-default" href ="{{url_for('editEvent',servicetype_id= event.type_id, event_id=event.id)}}">Edit</a>
+		</div>
+</div>
+
+		<div class="row">
+			<div class="col-xs-3 col-md-offset-1">
+				<form action="{{url_for('showEvents', servicetype_id=event.type_id)}}">
+					<input type="submit" value="Go Back" class='fsSubmitButton'>
+				</form>
+			</div>
+		</div>
+
+
+{% endblock %}

@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-	</head>
-	<body>
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
 
 	<h1>New Type</h1>
 	
@@ -13,12 +11,11 @@
 	<input type='text' size='30' name='name'>
 	<p>Description:</p>
 	<input type='text' size='30' name='description'>
-
-	<input type='submit' value='Create'>
+	</br>
+	<input type='submit' value='Create' class='submit'>
 
 	</form>
 		
 
 
-	</body>
-</html>
+{% endblock %}
