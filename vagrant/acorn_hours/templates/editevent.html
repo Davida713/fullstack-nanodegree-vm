@@ -23,7 +23,12 @@
 
 </br>
 </br>
-<a href="{{url_for('showEvents', servicetype_id=etype.id)}}">go back</a>
+
+<div class="col-md-3">
+	<form action="{{url_for('showEvents', servicetype_id=etype.id)}}"	>
+			<input type="submit" value="Go Back" class='fsSubmitButton'>
+	</form>
+</div>
 
 		
 {% endblock %}

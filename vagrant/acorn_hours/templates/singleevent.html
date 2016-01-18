@@ -12,9 +12,10 @@
 				<li>Date: {{event.date}}</li>
 				<li>Time: {{event.time}}</li>
 			</ul>
-
+			{% if event.owner== user_id %}
 			<a class="btn btn-default" href ="{{url_for('deleteEvent', servicetype_id= event.type_id, event_id=event.id)}}">Delete</a>
 			<a class="btn btn-default" href ="{{url_for('editEvent',servicetype_id= event.type_id, event_id=event.id)}}">Edit</a>
+			{% endif %}
 		</div>
 </div>
 
